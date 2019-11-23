@@ -35,7 +35,7 @@ bool SerialCom::buttonIsPressed()
         sendData<int>(988721, INT);
         sendData<float>(2.14f, FLOAT);
         sendData<double>(78454.57921, DOUBLE);
-        wait(1.000f);
+        wait_us(1000);
         //Convert_Data_Into_Char(false, BOOL);
         //Convert_Data_Into_Char(7812, INT);
         //Convert_Data_Into_Char(-32.1f, FLOAT);

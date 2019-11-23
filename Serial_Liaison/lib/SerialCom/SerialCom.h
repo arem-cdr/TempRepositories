@@ -1,5 +1,13 @@
 #pragma once
 
+/*--------------------TO DO--------------------------
+Mettre sendData en public
+Bug avec les fonctions templates
+----------------------------------------------------*/
+
+
+
+
 #include "mbed.h"
 #include <iostream>
 #include <vector>
