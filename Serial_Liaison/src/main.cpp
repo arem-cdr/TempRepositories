@@ -1,6 +1,5 @@
 #include "mbed.h"
-#include "SerialCom.h"
-#include "define.h"
+#include <SerialCom.h>
 
 
 
@@ -10,14 +9,13 @@
 
 int main()
 {
-  //SerialCommunication serial;
   SerialCom S1(USBTX, USBRX);
-  SerialCom S2(D1,D0);
+  SerialCom S2(A0,A1);
   
   while(1)
   {
     S2.buttonIsPressed();
-    wait(0.2);
+    S2.Traitement_DataReceived();
   }
   
  
