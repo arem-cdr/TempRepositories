@@ -1,5 +1,5 @@
 #include <mbed.h>
-#include<queue>
+#include <iostream>
 #include "BufferedSerial.h"
 #include "rplidar.h"
 
@@ -7,11 +7,21 @@ RPLidar lidar;
 BufferedSerial se_lidar(A0,A1);
 Serial PC(USBTX, USBRX);
 
+struct MapLidar{
+  float distance;
+  float angle;
+};
+
+
+
+MapLidar map;
+
 void get_rplidar()
 {
-     if (IS_OK(lidar.waitPoint())) 
-     {
-       PC.printf("%f, %f, %d, %d\n", lidar.getCurrentPoint().distance, lidar.getCurrentPoint().angle, lidar.getCurrentPoint().quality, lidar.getCurrentPoint().startBit);
+    if (IS_OK(lidar.waitPoint())) 
+    {
+        map.distance = lidar.getCurrentPoint().distance;
+        map.angle = lidar.getCurrentPoint().angle;
     } 
     else
     {
@@ -32,6 +42,7 @@ int main()
   while(1)
   {
     get_rplidar();
+
   }
   return 0;
 }
